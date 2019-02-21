@@ -411,12 +411,18 @@ Are we all resolved to finish this day 's  work ?  He looked from one tired face
 
 <instance id="arm.n.bnc.00036527" docsrc="BNC">
 <answer instance="arm.n.bnc.00036527" senseid="arm%1:08:00::"/>
+<context>
+The little army was stirring to its feet ,  movement ran from front to back of the broad crowd like hackles rising .  Let me see your hands .  Hundreds of <head>arms</head> were standing up stiffly now like bristling branches . Let us bind ourselves now by this oath  say it with me .  We do swear  He paused ,  and a murmur followed him with some clearer ,  harsher voices audible amongst it :  We do swear  He went on :  Never to swerve ,  and they said it together ,  Never to swerve  from our present path  till we have cleansed the country  or this oppressive Act .  
+</context>
+
+
+</instance>
+<instance id="arm.n.bnc.00036527" docsrc="BNC">
 <answer instance="arm.n.bnc.00036527" senseid="U"/>
 <context>
 The little army was stirring to its feet ,  movement ran from front to back of the broad crowd like hackles rising .  Let me see your hands .  Hundreds of <head>arms</head> were standing up stiffly now like bristling branches . Let us bind ourselves now by this oath  say it with me .  We do swear  He paused ,  and a murmur followed him with some clearer ,  harsher voices audible amongst it :  We do swear  He went on :  Never to swerve ,  and they said it together ,  Never to swerve  from our present path  till we have cleansed the country  or this oppressive Act .  
 </context>
 </instance>
-
 
 <instance id="arm.n.bnc.00036595" docsrc="BNC">
 <answer instance="arm.n.bnc.00036595" senseid="arm%1:08:00::"/>
@@ -1228,6 +1234,13 @@ But if Ashton had not made these very distinctive changes in his ports de bras  
 
 <instance id="arm.n.bnc.00056657" docsrc="BNC">
 <answer instance="arm.n.bnc.00056657" senseid="arm%1:08:00::"/>
+<context>
+The above examples are only a few of those showing how conventional ports de  bras  can be changed .  A study of Ashton 's  ways of using them ,  or of MacMillan 's  ,  reveal how unnecessary it is to keep passing the arms through 1st position .  Nor is it necessary always to keep the <head>arms</head> rounded except in arabesque . Examples taken from both choreographers '  works describe the particular feelings ,  moods and emotions of the characters their dancers are portraying .  Arms flick to and fro as the Winter Fairy and the Stars of Ashton 's  Cinderella  give the illusion of twinkling lights in the frosty air .  
+</context>
+</instance>
+
+
+<instance id="arm.n.bnc.00056657" docsrc="BNC">
 <answer instance="arm.n.bnc.00056657" senseid="U"/>
 <context>
 The above examples are only a few of those showing how conventional ports de  bras  can be changed .  A study of Ashton 's  ways of using them ,  or of MacMillan 's  ,  reveal how unnecessary it is to keep passing the arms through 1st position .  Nor is it necessary always to keep the <head>arms</head> rounded except in arabesque . Examples taken from both choreographers '  works describe the particular feelings ,  moods and emotions of the characters their dancers are portraying .  Arms flick to and fro as the Winter Fairy and the Stars of Ashton 's  Cinderella  give the illusion of twinkling lights in the frosty air .  
@@ -1645,9 +1658,16 @@ It would require patience and a Labour government would have to continue to meet
 
 <instance id="arm.n.bnc.00078497" docsrc="BNC">
 <answer instance="arm.n.bnc.00078497" senseid="arm%1:08:00::"/>
+<context>
+Elaine Kidney ,  Stafford Labour Party. If the price of ending nuclear power is to close every pit I will pay it because my interest is in the future of the human race ,   Arthur Scargill .  It is for a constituency Labour Party to welcome Mr Scargill with open <head>arms</head> , or any arms . Roy Hattersley ,  on Mr Scargill 's  reported attempt to become an MP .  The Labour Party Conference :  Revised policies approved 
+</context>
+</instance>
+
+
+<instance id="arm.n.bnc.00078497" docsrc="BNC">
 <answer instance="arm.n.bnc.00078497" senseid="U"/>
 <context>
-Elaine Kidney ,  Stafford Labour Party. If the price of ending nuclear power is to close every pit I will pay it because my interest is in the future of the human race ,   Arthur Scargill .  It is for a constituency Labour Party to welcome Mr Scargill with open <head>arms</head> , or any <head>arms</head> . Roy Hattersley ,  on Mr Scargill 's  reported attempt to become an MP .  The Labour Party Conference :  Revised policies approved 
+Elaine Kidney ,  Stafford Labour Party. If the price of ending nuclear power is to close every pit I will pay it because my interest is in the future of the human race ,   Arthur Scargill .  It is for a constituency Labour Party to welcome Mr Scargill with open arms , or any <head>arms</head> . Roy Hattersley ,  on Mr Scargill 's  reported attempt to become an MP .  The Labour Party Conference :  Revised policies approved 
 </context>
 </instance>
 
