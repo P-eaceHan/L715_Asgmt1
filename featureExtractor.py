@@ -8,6 +8,9 @@ import xml.etree.ElementTree as ET
 inputFile = 'train_data/armN.train'
 
 root = ET.parse(inputFile).getroot()
+out = open('armN.tsv', 'w')
+out2 = open('armN_withClass.tsv', 'w')
+
 for instance in root.findall('instance'):
     answer = instance.find('answer').attrib
     inst = answer.get('instance')
@@ -21,11 +24,26 @@ for instance in root.findall('instance'):
     res2 = re.findall(pattern2, context)
     justWords = []
     if res2:
-        print(res2)
         [justWords.append(x) for x in res2]
-        print(justWords)
+        # print(justWords)
+        if len(justWords) > 1:
+            break  # to catch duplicate contexts in training data
         # [out.write(x + '\n') for x in res2]
-
+        contextFragment = justWords[0]
+        vectorList = contextFragment.split()
+        if len(vectorList) < 5:  # to detect potential errors
+            print(vectorList)
+            break
+        vectorList.pop(2)  # get rid of the target word
+        finalVector = '\t'.join(vectorList)
+        for i in range(len(vectorList) - 1):  # combining features
+            finalVector += '\t' + vectorList[i] + '%' + vectorList[i + 1]
+        print(contextFragment)
+        print(finalVector)
+        # finalVector += '\n'
+        out.write(finalVector + '\n')
+        finalVector += '\t' + sense
+        out2.write(finalVector + '\n')
 '''
 # 2 words before and after word
 # punctuation not count as word
