@@ -6,12 +6,20 @@ import regex as re
 import xml.etree.ElementTree as ET
 
 
-def extractFeatures(word):  # remember to include POS at end of word (e.g. armN)
+def pluralize(word):
+    if word[-1] == 'y':
+        word = word[-1]
+        word += 'ies'
+    else:
+        word += 's'
 
-    inputFile = 'train_data/{0}/{0}.train'.format(word)
+
+def extractFeatures(word, pos):
+    dat = word + pos
+    inputFile = 'train_data/{0}/{0}.train'.format(dat)
     root = ET.parse(inputFile).getroot()
-    out = open('train_data/{0}/{0}.tsv'.format(word), 'w')
-    out2 = open('train_data/{0}/{0}_withClass.tsv'.format(word), 'w')
+    out = open('train_data/{0}/{0}.tsv'.format(dat), 'w')
+    out2 = open('train_data/{0}/{0}_withClass.tsv'.format(dat), 'w')
 
     for instance in root.findall('instance'):
         answer = instance.find('answer').attrib
@@ -21,7 +29,7 @@ def extractFeatures(word):  # remember to include POS at end of word (e.g. armN)
         print(context)
         # 2 words before and after word
         # punctuation = word
-        pattern2 = "(?:\S+\s+){,2}<head>arms?<\/head>(?:\s+\S+){,2}"
+        pattern2 = "(?:\S+\s+){,2}<head>.*<\/head>(?:\s+\S+){,2}"
         res2 = re.findall(pattern2, context)
         justWords = []
         if res2:
