@@ -92,7 +92,15 @@ Kezia ?  His eyes were so narrow they looked like gun - slits .  He pinched my <
 <instance id="arm.n.bnc.00019432" docsrc="BNC">
 <answer instance="arm.n.bnc.00019432" senseid="arm%1:08:00::"/>
 <context>
-Immediately after leaving SIS ,  I took a long holiday in Italy .  I finished up in Rome ,  home to so many of the works I lectured on ,  and on my last night there I took a walk down to Bernini 's  Trevi fountain in order to throw in the coin that would ensure that somehow I would one day return .  All around me there were young couples , <head>arm</head> in <head>arm</head> , doing the same . I watched the waters for a while .  Bernini ,  I said at length .  
+Immediately after leaving SIS ,  I took a long holiday in Italy .  I finished up in Rome ,  home to so many of the works I lectured on ,  and on my last night there I took a walk down to Bernini 's  Trevi fountain in order to throw in the coin that would ensure that somehow I would one day return .  All around me there were young couples , <head>arm</head> in arm , doing the same . I watched the waters for a while .  Bernini ,  I said at length .  
+</context>
+</instance>
+
+
+<instance id="arm.n.bnc.00019432" docsrc="BNC">
+<answer instance="arm.n.bnc.00019432" senseid="arm%1:08:00::"/>
+<context>
+Immediately after leaving SIS ,  I took a long holiday in Italy .  I finished up in Rome ,  home to so many of the works I lectured on ,  and on my last night there I took a walk down to Bernini 's  Trevi fountain in order to throw in the coin that would ensure that somehow I would one day return .  All around me there were young couples , arm in <head>arm</head> , doing the same . I watched the waters for a while .  Bernini ,  I said at length .  
 </context>
 </instance>
 
