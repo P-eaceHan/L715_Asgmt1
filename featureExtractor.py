@@ -38,7 +38,7 @@ def extractFeatures(word, pos, test=False):
         res2 = re.findall(pattern2, context)
         justWords = []
         if res2:
-            [justWords.append(x) for x in res2]
+            [justWords.append(x.lower()) for x in res2]
             print(justWords)
             if len(justWords) > 1:
                 break  # to catch duplicate contexts in training data
