@@ -6,6 +6,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.neighbors import KNeighborsClassifier
 
+
 def get_encoder(filepath, isY):
     with open(filepath) as tsv:
         data = tsv.readlines()
@@ -19,7 +20,7 @@ def get_encoder(filepath, isY):
         else:
             line = line.split('\t')
             out.extend(line)
-    print(out)
+    # print(out)
     encoder = preprocessing.LabelEncoder()
     # encoder = preprocessing.OneHotEncoder()
     # encoder = CountVectorizer()
@@ -77,10 +78,10 @@ def arm_classifier():
     y_test = get_data(testingLabels, enc, isY)
     # y_test = list(preprocessing.scale(y_test))
 
-    print(x_train)
-    print(y_train)
-    print(x_test)
-    print(y_test)
+    # print(x_train)
+    # print(y_train)
+    # print(x_test)
+    # print(y_test)
 
     # interpreting encoded labels
     # print('og  labels: ', enc.classes_)
