@@ -14,16 +14,21 @@ def pluralize(word):
         word += 's'
 
 
-def extractFeatures(word, pos):
+def extractFeatures(word, pos, test=False):
     dat = word + pos
-    inputFile = 'train_data/{0}/{0}.train'.format(dat)
+    dif = 'train'
+    if test:
+        dir = 'test'
+    inputFile = '{1}_data/{0}/{0}.{1}'.format(dat, dir)
     root = ET.parse(inputFile).getroot()
-    out = open('train_data/{0}/{0}.tsv'.format(dat), 'w')
-    out2 = open('train_data/{0}/{0}_withClass.tsv'.format(dat), 'w')
+    out = open('{1}_data/{0}/{0}.tsv'.format(dat, dir), 'w')
+    if test:
+        out2 = open('{1}_data/{0}/{0}_withClass.tsv'.format(dat, dir), 'w')
 
     for instance in root.findall('instance'):
-        answer = instance.find('answer').attrib
-        sense = answer.get('senseid')
+        if not test:
+            answer = instance.find('answer').attrib
+            sense = answer.get('senseid')
         context = ET.tostring(instance.find('context'))
         context = context.decode('UTF-8')
         print(context)
@@ -51,8 +56,9 @@ def extractFeatures(word, pos):
             print(finalVector)
             # finalVector += '\n'
             out.write(finalVector + '\n')
-            finalVector += '\t' + sense
-            out2.write(finalVector + '\n')
+            if not test:
+                finalVector += '\t' + sense
+                out2.write(finalVector + '\n')
     out.close()
     out2.close()
 
