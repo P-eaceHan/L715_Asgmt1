@@ -7,25 +7,37 @@ from sklearn import preprocessing
 '''
 
 
-def encode(filepath, isY):
+def encode_data(filepath):
     with open(filepath) as tsv:
         data = tsv.readlines()
     out = []
     for line in data:
         line = line.strip()
-        if isY:
-            line = line.split()
-            label = line[-1]
-            out.append([label])
-        else:
-            line = line.split('\t')
-            out.append(line)
-    if isY:
-        enc = preprocessing.LabelEncoder()
-    else:
-        enc = preprocessing.OneHotEncoder(handle_unknown='ignore')
+        line = line.split('\t')
+        out.append(line)
+    enc = preprocessing.OneHotEncoder(handle_unknown='ignore')
     out = enc.fit_transform(out)
     return out, enc
+
+
+'''
+:param filepath: file to the tsv file of features
+:param encoder: the encoder to encode data in filepath
+:param isY: flag telling if this is a label file
+:return: numericized test features
+'''
+
+
+def encode_test(filepath, encoder):
+    with open(filepath) as tsv:
+        data = tsv.readlines()
+    out = []
+    for line in data:
+        line = line.strip()
+        line = line.split('\t')
+        out.append(line)
+    out = encoder.transform(out)
+    return out
 
 
 '''
@@ -49,27 +61,3 @@ def label_encoder(filepath, d=dict()):
         labels.append(d[label])
     return labels, d
 
-
-'''
-:param filepath: file to the tsv file of features
-:param encoder: the encoder to encode data in filepath
-:param isY: flag telling if this is a label file
-:return: numericized test features
-'''
-
-
-def encode_test(filepath, encoder, isY):
-    with open(filepath) as tsv:
-        data = tsv.readlines()
-    out = []
-    for line in data:
-        line = line.strip()
-        if isY:
-            line = line.split()
-            label = [line[-1]]
-            out.extend(label)
-        else:
-            line = line.split('\t')
-            out.append(line)
-    out = encoder.transform(out)
-    return out

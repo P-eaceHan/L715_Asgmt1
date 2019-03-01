@@ -5,29 +5,23 @@ from sklearn.metrics import classification_report
 import featureEncoder as fe
 
 
-def difficulty_classifier():
+def interest_classifier():
     dat = 'interestN'
 
     # getting x_train
-    isY = False
     trainingFile = 'train_data/{0}/{0}.tsv'.format(dat)
-    x_train, enc_data = fe.encode(trainingFile, isY)
+    x_train, enc_data = fe.encode_data(trainingFile)
 
     # getting y_train
-    isY = True
     trainingLabels = 'train_data/{0}/{0}Answers.train'.format(dat)
-    # y_train, enc_label = fe.encode(trainingLabels, isY)
     y_train, enc_label = fe.label_encoder(trainingLabels)
 
     # getting x_test
-    isY = False
     testingFile = 'test_data/{0}/{0}_test.tsv'.format(dat)
-    x_test = fe.encode_test(testingFile, enc_data, isY)
+    x_test = fe.encode_test(testingFile, enc_data)
 
     # getting y_test
-    isY = True
     testingLabels = 'test_data/{0}/{0}Answers.test'.format(dat)
-    # y_test = fe.encode_test(testingLabels, enc_label, isY)
     y_test, enc_label = fe.label_encoder(testingLabels, enc_label)
 
     # print('x_train: \n', x_train)
@@ -91,7 +85,7 @@ def difficulty_classifier():
 
 
 def main():
-    difficulty_classifier()
+    interest_classifier()
 
 
 if __name__ == main():
