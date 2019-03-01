@@ -1,60 +1,8 @@
 # import csv
-from sklearn import preprocessing
 from sklearn import svm
 from sklearn import metrics
 from sklearn.metrics import classification_report
-from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.naive_bayes import MultinomialNB
-from sklearn.neighbors import KNeighborsClassifier
-
-
-'''
-:param filepath: file to the tsv file of features
-:param isY: flag telling if this is a label file
-:return: numericized features and encoder
-'''
-def encode(filepath, isY):
-    with open(filepath) as tsv:
-        data = tsv.readlines()
-    out = []
-    for line in data:
-        line = line.strip()
-        if isY:
-            line = line.split()
-            label = line[-1]
-            out.append([label])
-        else:
-            line = line.split('\t')
-            out.append(line)
-    if isY:
-        enc = preprocessing.LabelEncoder()
-    else:
-        enc = preprocessing.OneHotEncoder(handle_unknown='ignore')
-    out = enc.fit_transform(out)
-    return out, enc
-
-
-'''
-:param filepath: file to the tsv file of features
-:param encoder: the encoder to encode data in filepath
-:param isY: flag telling if this is a label file
-:return: numericized test features
-'''
-def encode_test(filepath, encoder, isY):
-    with open(filepath) as tsv:
-        data = tsv.readlines()
-    out = []
-    for line in data:
-        line = line.strip()
-        if isY:
-            line = line.split()
-            label = [line[-1]]
-            out.extend(label)
-        else:
-            line = line.split('\t')
-            out.append(line)
-    out = encoder.transform(out)
-    return out
+import featureEncoder as fe
 
 
 def arm_classifier():
@@ -63,22 +11,24 @@ def arm_classifier():
     # getting x_train
     isY = False
     trainingFile = 'train_data/{0}/{0}.tsv'.format(dat)
-    x_train, enc_data = encode(trainingFile, isY)
+    x_train, enc_data = fe.encode(trainingFile, isY)
 
     # getting y_train
     isY = True
     trainingLabels = 'train_data/{0}/{0}Answers.train'.format(dat)
-    y_train, enc_label = encode(trainingLabels, isY)
+    # y_train, enc_label = fe.encode(trainingLabels, isY)
+    y_train, enc_label = fe.label_encoder(trainingLabels)
 
     # getting x_test
     isY = False
     testingFile = 'test_data/{0}/{0}_test.tsv'.format(dat)
-    x_test = encode_test(testingFile, enc_data, isY)
+    x_test = fe.encode_test(testingFile, enc_data, isY)
 
     # getting y_test
     isY = True
     testingLabels = 'test_data/{0}/{0}Answers.test'.format(dat)
-    y_test = encode_test(testingLabels, enc_label, isY)
+    # y_test = fe.encode_test(testingLabels, enc_label, isY)
+    y_test, enc_label = fe.label_encoder(testingLabels, enc_label)
 
     # print('x_train: \n', x_train)
     # print('y_train: \n', y_train)
@@ -87,8 +37,8 @@ def arm_classifier():
 
     # interpreting encoded labels
     print('labels: ')
-    [print(x) for x in enc_label.classes_]
-    # print('num labels: ', enc_label.transform(enc_label.classes_))
+    [print(v, ' - ', k) for k, v in enc_label.items()]
+
     print('===============================================')
 
     # rbf kernel
