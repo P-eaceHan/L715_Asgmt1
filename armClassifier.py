@@ -36,8 +36,8 @@ def arm_classifier():
 
     # rbf kernel
     print('rbf kernel results')
-    # clf= svm.SVC(kernel='rbf')
-    clf = svm.SVC(kernel='rbf', gamma='scale', C=4, class_weight='balanced', decision_function_shape='ovo')
+    clf = svm.SVC(kernel='rbf')
+    # clf = svm.SVC(kernel='rbf', gamma='scale', C=4, class_weight='balanced', decision_function_shape='ovo')
     clf.fit(x_train, y_train)
     y_pred = clf.predict(x_test)
     print('Did not predict: ', set(y_test) - set(y_pred))
@@ -48,8 +48,8 @@ def arm_classifier():
 
     # linear kernel
     print('linear kernel results')
-    # clf= svm.SVC(kernel='linear)
-    clf = svm.SVC(kernel='linear', gamma='scale', C=4, class_weight='balanced', decision_function_shape='ovo')
+    clf = svm.SVC(kernel='linear')
+    # clf = svm.SVC(kernel='linear', gamma='scale', C=4, class_weight='balanced', decision_function_shape='ovo')
     clf.fit(x_train, y_train)
     y_pred = clf.predict(x_test)
     print('Did not predict: ', set(y_test) - set(y_pred))
@@ -60,8 +60,8 @@ def arm_classifier():
 
     # sigmoid kernel
     print('sigmoid kernel results')
-    # clf= svm.SVC(kernel='sigmoid')
-    clf = svm.SVC(kernel='sigmoid', gamma='scale', C=4, class_weight='balanced', decision_function_shape='ovo')
+    clf = svm.SVC(kernel='sigmoid')
+    # clf = svm.SVC(kernel='sigmoid', gamma='scale', C=4, class_weight='balanced', decision_function_shape='ovo')
     clf.fit(x_train, y_train)
     y_pred = clf.predict(x_test)
     print('Did not predict: ', set(y_test) - set(y_pred))
@@ -72,8 +72,8 @@ def arm_classifier():
 
     # poly kernel
     print('poly kernel results')
-    # clf= svm.SVC(kernel='poly')
-    clf = svm.SVC(kernel='poly', gamma='scale', C=4, class_weight='balanced', decision_function_shape='ovo')
+    clf = svm.SVC(kernel='poly')
+    # clf = svm.SVC(kernel='poly', gamma='scale', C=4, class_weight='balanced', decision_function_shape='ovo')
     clf.fit(x_train, y_train)
     y_pred = clf.predict(x_test)
     print('Did not predict: ', set(y_test) - set(y_pred))
