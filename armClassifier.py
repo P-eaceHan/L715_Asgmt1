@@ -65,9 +65,9 @@ def arm_classifier():
     print('Accuracy: ', metrics.accuracy_score(y_test, y_pred))
     print('===============================================')
 
-    # sigmoid? poly? kernel
+    # sigmoid kernel
     print('sigmoid kernel results')
-    # clf= svm.SVC(kernel='poly)
+    # clf= svm.SVC(kernel='sigmoid')
     clf = svm.SVC(kernel='sigmoid', gamma='scale', C=4, class_weight='balanced', decision_function_shape='ovo')
     clf.fit(x_train, y_train)
     y_pred = clf.predict(x_test)
